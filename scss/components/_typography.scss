@@ -1,0 +1,69 @@
+.txt {
+
+	&-header {
+		@include font-bg-bold();
+		font-size: 28px;
+		line-height: 1.2em;
+		color: $mine-shaft-light;
+	}
+
+	&-title-1 {
+		@include font-bg-med();
+		font-size: 18px;
+		line-height: 21 / 18 * 1em;
+		//color: $mine-shaft-light;
+		color: $mine-shaft;
+	}
+
+	&-title-2,
+	&-button {
+		@include font-bg-bold();
+		font-size: 12px;
+		line-height: 1.2em;
+		color: $astral;
+	}
+
+	&-subtitle {
+		@include font-bg-reg();
+		font-size: 14px;
+		line-height: 17 / 14 * 1em;
+		//color: $mine-shaft-light;
+		color: $mine-shaft;
+	}
+
+	&-body {
+		@include font-ssp-reg();
+		font-size: 14px;
+		line-height: 1.2em;
+		color: $mine-shaft-light;
+	}
+
+	&-caption {
+		@include font-ssp-reg();
+		font-size: 11px;
+		line-height: 13 / 11 * 1em;
+		color: $mine-shaft-light;
+	}
+
+	&-flat-button {
+		@include font-ssp-reg();
+		font-size: 12px;
+		line-height: 1.2em;
+		color: $mine-shaft-light;
+		text-decoration: underline;
+	}
+
+	&-hint {
+		@include font-bg-med();
+		font-size: 12px;
+		line-height: 1.2em;
+		color: $mine-shaft-light;
+	}
+
+	&-label {
+		@include font-bg-med();
+		font-size: 10px;
+		line-height: 1.2em;
+		color: $mine-shaft-light;
+	}
+}

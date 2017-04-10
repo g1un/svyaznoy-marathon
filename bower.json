@@ -1,0 +1,21 @@
+{
+  "name": "SFCD",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "g1un"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.7"
+  }
+}

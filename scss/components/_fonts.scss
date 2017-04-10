@@ -1,0 +1,35 @@
+@font-face {
+	font-family: svyaznoy_rf;
+	src: url(../fonts/svyaznoy_rf.eot);
+	src: url(../fonts/svyaznoy_rf.eot?#iefix) format('embedded-opentype'),
+	url(../fonts/svyaznoy_rf.woff2) format('woff2'),
+	url(../fonts/svyaznoy_rf.woff) format('woff'),
+	url(../fonts/svyaznoy_rf.ttf)  format('truetype');
+}
+@mixin font-srf-reg() {
+	font-family: svyaznoy_rf, sans-serif;
+}
+
+@font-face {
+	font-family: svyaznoyrf700;
+	src: url(../fonts/svyaznoyrf700.eot);
+	src: url(../fonts/svyaznoyrf700.eot?#iefix) format('embedded-opentype'),
+	url(../fonts/svyaznoyrf700.woff2) format('woff2'),
+	url(../fonts/svyaznoyrf700.woff) format('woff'),
+	url(../fonts/svyaznoyrf700.ttf)  format('truetype');
+}
+@mixin font-srf-bold() {
+	font-family: svyaznoyrf700, sans-serif;
+}
+
+@font-face {
+	font-family: svyaznoy_rfconbold;
+	src: url(../fonts/svyaznoy_rfconbold.eot);
+	src: url(../fonts/svyaznoy_rfconbold.eot?#iefix) format('embedded-opentype'),
+	url(../fonts/svyaznoy_rfconbold.woff2) format('woff2'),
+	url(../fonts/svyaznoy_rfconbold.woff) format('woff'),
+	url(../fonts/svyaznoy_rfconbold.ttf)  format('truetype');
+}
+@mixin font-srfc-bold() {
+	font-family: svyaznoy_rfconbold, sans-serif;
+}

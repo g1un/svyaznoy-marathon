@@ -1,0 +1,57 @@
+.features {
+
+	&__title {
+		margin-bottom: 16px;
+		@include font-srfc-bold();
+		font-size: 82px;
+		line-height: 1em;
+		color: #fff;
+		white-space: nowrap;
+
+		.plus {
+			display: none;
+		}
+
+		@include media($lg) {
+			margin-bottom: 13px;
+		}
+
+		@include media($md) {
+			margin-bottom: 9px;
+			font-size: 65px;
+		}
+
+		@include media($sm) {
+			margin-bottom: 0;
+			font-size: 45px;
+			line-height: 41px;
+			text-align: center;
+			white-space: nowrap;
+
+			.plus {
+				display: block;
+			}
+		}
+	}
+
+	&__text {
+		@include font-srf-reg();
+		font-size: 16px;
+		line-height: 19 / 16 * 1em;
+		color: $silver;
+
+		@include media($lg) {
+			font-size: 12px;
+			line-height: 14px;
+		}
+
+		@include media($md) {
+			font-size: 16px;
+			line-height: 19 / 16 * 1em;
+		}
+
+		@include media($sm) {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,89 @@
+.project {
+	display: table;
+	width: 100%;
+	background: url(../img/project-bg.jpg) no-repeat center top;
+	background-size: cover;
+
+	&__wrapper {
+		padding: 81px 0 20px;
+		height: 100vh;
+		display: table-cell;
+		vertical-align: middle;
+
+		@include media($sm) {
+			padding: 120px 0 35px;
+			vertical-align: top;
+		}
+	}
+
+	&__title {
+		margin-bottom: 56px;
+		@include font-srf-reg();
+		font-size: 95px;
+		line-height: 89px;
+		color: $celery;
+		text-transform: uppercase;
+		
+		span {
+			color: $tulip-tree;
+		}
+
+		@include media($lg) {
+			margin-bottom: 46px;
+		}
+
+		@include media($md) {
+			margin-bottom: 26px;
+			font-size: 80px;
+		}
+
+		@include media($sm) {
+			margin-bottom: 50px;
+			@include font-srf-bold();
+			font-size: 47px;
+			line-height: 48px;
+		}
+	}
+
+	&__features {
+		margin-bottom: 80px;
+
+		@include media($md) {
+			margin-bottom: 72px;
+		}
+
+		@include media($sm) {
+			margin-bottom: 59px;
+		}
+	}
+
+	&__footer {
+		display: flex;
+		align-items: center;
+
+		@include media($sm) {
+			display: block;
+			text-align: center;
+		}
+	}
+
+	&__link {
+
+		@include media($sm) {
+			margin-bottom: 50px;
+		}
+	}
+
+	&__tag {
+		@include font-srf-reg();
+		font-size: 20px;
+		line-height: 1.2em;
+		color: $silver;
+		letter-spacing: .2em;
+		text-transform: uppercase;
+
+		@include media($sm) {
+			font-size: 16px;
+		}
+	}
+}

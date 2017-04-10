@@ -1,0 +1,8 @@
+mixin features(list)
+	ul.features.columns(class=attributes.class)
+		each val, i in list
+			li.features__item.columns__item-2
+				h3.features__title!= val.title
+					if i+1 != list.length
+						span.plus +
+				p.features__text!= val.text

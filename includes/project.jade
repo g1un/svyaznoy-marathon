@@ -1,0 +1,29 @@
+include features
+
+mixin projet()
+	.project
+		.project__wrapper
+			.container
+				h2.project__title следи за марфоном <span>связного</span>!
+				-
+					var list = [
+						{
+							"title": "6700 км",
+							"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+						},
+						{
+							"title": "2 дня",
+							"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+						},
+						{
+							"title": "900 городов",
+							"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+						}
+					]
+				+features(list).project__features
+				footer.project__footer.columns
+					.columns__item-4
+						a(href='#').btn-border.project__link
+							span Забег
+					.columns__item-2
+						.project__tag #марафонсвязного

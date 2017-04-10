@@ -1,0 +1,18 @@
+//plugins
+@import "plugins/normalize";
+
+//base
+@import 'components/variables';
+@import 'components/mixins';
+@import 'components/fonts';
+@import 'components/general';
+@import 'components/columns';
+@import 'components/sprite';
+@import 'components/btn';
+
+//custom
+@import 'components/header';
+@import 'components/nav';
+@import 'components/project';
+@import 'components/features';
+@import 'components/footer';

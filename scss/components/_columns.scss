@@ -1,0 +1,44 @@
+.columns {
+	margin: 0 -50px;
+
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+	@for $i from 1 through 6 {
+
+		&__item-#{$i} {
+			float: left;
+			width: 1 / 6 * $i * 100%;
+			padding: 0 50px;
+		}
+	}
+
+	@include media($lg) {
+		margin: 0 -25px;
+
+		@for $i from 1 through 6 {
+
+			&__item-#{$i} {
+				float: left;
+				width: 1 / 6 * $i * 100%;
+				padding: 0 25px;
+			}
+		}
+	}
+
+	@include media($sm) {
+		margin: 0;
+
+		@for $i from 1 through 6 {
+
+			&__item-#{$i} {
+				float: none;
+				width: 100%;
+				padding: 0;
+			}
+		}
+	}
+}

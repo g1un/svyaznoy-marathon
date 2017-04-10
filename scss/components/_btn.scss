@@ -1,0 +1,48 @@
+.btn-border {
+	display: inline-block;
+	vertical-align: top;
+	padding: 7px;
+	border: 1px dotted $tulip-tree;
+	border-radius: 40px;
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: -8px;
+		left: -8px;
+		right: -8px;
+		bottom: -8px;
+		border: 1px dotted $tulip-tree;
+		border-radius: 45px;
+		opacity: .3;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: -14px;
+		left: -14px;
+		right: -14px;
+		bottom: -14px;
+		border: 1px dotted $tulip-tree;
+		border-radius: 51px;
+		opacity: .1;
+	}
+
+	span {
+		position: relative;
+		z-index: 1;
+		padding: 0 29px;
+		background: $starship;
+		border-radius: 33px;
+		display: inline-block;
+		vertical-align: top;
+		@include font-srf-bold();
+		font-size: 29px;
+		line-height: 68px;
+		color: $abbey;
+		text-transform: uppercase;
+		text-align: center;
+	}
+}
