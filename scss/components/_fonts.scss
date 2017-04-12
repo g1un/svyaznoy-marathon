@@ -33,3 +33,27 @@
 @mixin font-srfc-bold() {
 	font-family: svyaznoy_rfconbold, sans-serif;
 }
+
+@font-face {
+	font-family: svyaznoy_rfnumerals;
+	src: url(../fonts/svyaznoy_rfnumerals.eot);
+	src: url(../fonts/svyaznoy_rfnumerals.eot?#iefix) format('embedded-opentype'),
+	url(../fonts/svyaznoy_rfnumerals.woff2) format('woff2'),
+	url(../fonts/svyaznoy_rfnumerals.woff) format('woff'),
+	url(../fonts/svyaznoy_rfnumerals.ttf)  format('truetype');
+}
+@mixin font-srf-num() {
+	font-family: svyaznoy_rfnumerals, sans-serif;
+}
+
+@font-face {
+	font-family: svyaznoy_rfcon;
+	src: url(../fonts/svyaznoy_rfcon.eot);
+	src: url(../fonts/svyaznoy_rfcon.eot?#iefix) format('embedded-opentype'),
+	url(../fonts/svyaznoy_rfcon.woff2) format('woff2'),
+	url(../fonts/svyaznoy_rfcon.woff) format('woff'),
+	url(../fonts/svyaznoy_rfcon.ttf)  format('truetype');
+}
+@mixin font-srfc-reg() {
+	font-family: svyaznoy_rfcon, sans-serif;
+}

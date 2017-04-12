@@ -1,0 +1,112 @@
+.infobox {
+	width: 312px;
+	height: 351px;
+	background: #e9e9e9;
+	font-size: 0;
+	position: relative;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 0;
+		height: 0;
+		border-top: 13px solid #90c74b;
+		border-left: 39px solid #90c74b;
+		border-right: 39px solid transparent;
+		border-bottom: 13px solid transparent;
+	}
+
+	&__city {
+		height: 121px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include font-srf-reg();
+		font-size: 27px;
+		line-height: 1.2em;
+		color: #454545;
+	}
+
+	&__distance {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		height: 115px;
+		padding-top: 18px;
+		box-sizing: border-box;
+		background: #faad3d;
+		@include font-srf-reg();
+		font-size: 15px;
+		line-height: 1em;
+		color: #454545;
+		text-align: center;
+
+		span {
+			margin-top: 14px;
+			display: block;
+			@include font-srf-num();
+			font-size: 40px;
+			line-height: 1em;
+		}
+	}
+
+	&__likes {
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		height: 115px;
+		padding-top: 62px;
+		background: #90c74b;
+		@include font-srf-num();
+		font-size: 40px;
+		line-height: 1em;
+		color: #fff;
+		text-align: center;
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 25px;
+			left: 50%;
+			margin-left: -$heart-width / 2;
+			@include sprite($heart);
+		}
+	}
+
+	&__photos {
+		display: inline-flex;
+		vertical-align: top;
+		align-items: center;
+		justify-content: center;
+		width: 50%;
+		height: 115px;
+		background: #90c74b;
+		cursor: pointer;
+
+		&:before {
+			content: '';
+			display: block;
+			@include sprite($photos);
+		}
+	}
+
+	&__link {
+		display: inline-flex;
+		vertical-align: top;
+		align-items: center;
+		justify-content: center;
+		width: 50%;
+		height: 115px;
+		background: #8f61a9;
+		cursor: pointer;
+
+		&:before {
+			content: '';
+			display: block;
+			@include sprite($link);
+		}
+	}
+}
