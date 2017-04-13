@@ -23,3 +23,11 @@
 		@content;
 	}
 }
+
+@mixin media-min($i) {
+
+	@media (min-width: $i) {
+
+		@content;
+	}
+}

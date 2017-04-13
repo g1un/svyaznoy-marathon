@@ -71,9 +71,9 @@ gulp.task('reload', function(){
 });
 
 gulp.task('scripts', function() {
-    gulp.src(['js/**/*.js'])
+    gulp.src(['js/**/*.js', 'bower_components/underscore/underscore-min.js'])
     // .pipe(concat('all.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('../prod/js'))
     .pipe(browserSync.reload({
         stream: true

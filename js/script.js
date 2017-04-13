@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		//cache dom
 		var mapContainer = document.querySelector('#map');
+		var boxText = document.querySelector('#infobox-template').content.querySelector('.infobox');
 
 		initMap();
 
@@ -33,7 +34,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			map = new google.maps.Map(mapContainer, {
 				center: myLatLng,
-				zoom: 6
+				zoom: 6,
+				disableDefaultUI: true,
+				styles: [{
+					"stylers": [
+						{ "saturation": -100 }
+					]
+				}]
 			});
 
 			var geocoder = new google.maps.Geocoder();
@@ -59,36 +66,14 @@ document.addEventListener('DOMContentLoaded', function(){
 						icon: markerImage
 					});
 
-					// map.setCenter(results[0].geometry.location);
-					// console.log(results[0].geometry.location.lat(), results[0].geometry.location.lng());
-
-					// var infowindow = new google.maps.InfoWindow({
-					// 	content: '<div>Hello!</div>'
-					// });
-					//
-					// marker.addListener('click', function() {
-					// 	infowindow.open(map, marker);
-					// });
-
-					// var boxText = document.createElement("div");
-					var boxText = document.querySelector('#infobox-template').content.querySelector('.infobox');
-					// boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: yellow; padding: 5px;";
-					// boxText.innerHTML = "City Hall, Sechelt<br>British Columbia<br>Canada";
+					var smalled;
 
 					var myOptions = {
-						content: boxText
+						content: boxText.cloneNode(true)
 						,disableAutoPan: false
 						,maxWidth: 0
-						,pixelOffset: new google.maps.Size(0, -377)
+						,pixelOffset: new google.maps.Size(window.innerWidth <= 1023 ? -136 : 0, window.innerWidth <= 1023 ? -337 : -377)
 						,zIndex: null
-						// ,boxStyle: {
-						// 	background: "url('tipbox.gif') no-repeat"
-						// 	,opacity: 0.75
-						// 	,width: "280px"
-						// 	,height: "351px"
-						// }
-						// ,closeBoxMargin: "10px 2px 2px 2px"
-						// ,closeBoxURL: "https://www.google.com/intl/en_us/mapfiles/close.gif"
 						,closeBoxURL: ""
 						,infoBoxClearance: new google.maps.Size(1, 1)
 						,isHidden: false
@@ -104,11 +89,29 @@ document.addEventListener('DOMContentLoaded', function(){
 
 					ib.open(map, marker);
 
+					window.addEventListener('resize', _.throttle(resizer, 100));
+
+					//resize
+					function resizer() {
+
+						var small = function() { return window.innerWidth <= 1023; };
+
+						if(small() && smalled) return;
+						if(!small() && !smalled && smalled != 'undefined') return;
+
+						if(small()) {
+							ib.setOptions({pixelOffset: new google.maps.Size(-136, -337)});
+							smalled = true;
+						} else {
+							ib.setOptions({pixelOffset: new google.maps.Size(0, -377)});
+							smalled = false;
+						}
+					}
+
 				} else {
 					console.log('Geocode was not successful for the following reason: ' + status);
 				}
 			});
 		}
-
 	})();
 });

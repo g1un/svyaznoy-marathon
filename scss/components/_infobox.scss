@@ -5,6 +5,11 @@
 	font-size: 0;
 	position: relative;
 
+	@include media($sm) {
+		width: 272px;
+		height: 306px;
+	}
+
 	&:after {
 		content: '';
 		position: absolute;
@@ -16,6 +21,13 @@
 		border-left: 39px solid #90c74b;
 		border-right: 39px solid transparent;
 		border-bottom: 13px solid transparent;
+
+		@include media($sm) {
+			border: none;
+			left: 50%;
+			margin-left: -$connector-width / 2;
+			@include sprite($connector);
+		}
 	}
 
 	&__city {
@@ -27,6 +39,11 @@
 		font-size: 27px;
 		line-height: 1.2em;
 		color: #454545;
+
+		@include media($sm) {
+			height: 105px;
+			font-size: 24px;
+		}
 	}
 
 	&__distance {
@@ -43,12 +60,23 @@
 		color: #454545;
 		text-align: center;
 
+		@include media($sm) {
+			height: 101px;
+			padding-top: 15px;
+			font-size: 13px;
+		}
+
 		span {
 			margin-top: 14px;
 			display: block;
 			@include font-srf-num();
 			font-size: 40px;
 			line-height: 1em;
+
+			@include media($sm) {
+				margin-top: 12px;
+				font-size: 35px;
+			}
 		}
 	}
 
@@ -66,6 +94,12 @@
 		text-align: center;
 		position: relative;
 
+		@include media($sm) {
+			padding-top: 54px;
+			height: 101px;
+			font-size: 35px;
+		}
+
 		&:before {
 			content: '';
 			position: absolute;
@@ -73,6 +107,12 @@
 			left: 50%;
 			margin-left: -$heart-width / 2;
 			@include sprite($heart);
+
+			@include media($sm) {
+				top: 22px;
+				margin-left: -$heart-sm-width / 2;
+				@include sprite($heart-sm);
+			}
 		}
 	}
 
@@ -85,6 +125,10 @@
 		height: 115px;
 		background: #90c74b;
 		cursor: pointer;
+
+		@include media($sm) {
+			height: 100px;
+		}
 
 		&:before {
 			content: '';
@@ -102,6 +146,10 @@
 		height: 115px;
 		background: #8f61a9;
 		cursor: pointer;
+
+		@include media($sm) {
+			height: 100px;
+		}
 
 		&:before {
 			content: '';

@@ -5,7 +5,7 @@ html
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width")
 		link(rel='stylesheet', type='text/css', href='css/style.css')
-	body
+	body#body--marathon
 		include includes/header
 		include includes/map
 		include includes/progress
@@ -13,3 +13,18 @@ html
 		+header()
 		+map()
 		+progress()
+
+		template(id='infobox-template', style='dispaly:none;')
+			.infobox
+				.infobox__city Набережные Челны
+				.infobox__distance
+					| Пройденная <br>дистанция, км:
+					span 15
+				.infobox__likes 150
+				.infobox__photos
+				.infobox__link
+
+		script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBneFWpoU3aGvIOZu-Le2IK-GFPh3dY0IQ")
+		script(src='js/infobox_packed.js')
+		script(src='js/underscore-min.js')
+		script(src='js/script.js')

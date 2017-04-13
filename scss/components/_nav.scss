@@ -21,7 +21,6 @@
 
 			.nav__link {
 				background: $celery;
-				border-radius: 12px;
 				@include font-srf-bold();
 				color: $tundora;
 			}
@@ -50,6 +49,7 @@
 	&__link {
 		display: block;
 		padding: 0 13px;
+		border-radius: 12px;
 		@include font-srf-reg();
 		font-size: 16px;
 		line-height: 33px;
@@ -82,6 +82,31 @@
 			text-transform: uppercase;
 			letter-spacing: .2em;
 			text-align: center;
+		}
+	}
+}
+
+#body--marathon {
+
+	@include media-min($sm + 1px) {
+
+		.nav {
+
+			&__item {
+
+				&.active {
+
+					.nav__link {
+						background: #f9ac3d;
+					}
+				}
+			}
+
+			&__link {
+				background: #fff;
+				@include font-srf-bold();
+				color: #454545;
+			}
 		}
 	}
 }

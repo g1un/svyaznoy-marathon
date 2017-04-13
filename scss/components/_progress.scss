@@ -11,6 +11,14 @@
 	background: linear-gradient(to top, #fff, transparent);
 	pointer-events: none;
 
+	@include media($md) {
+		padding: 0 32px 52px;
+	}
+
+	@include media($sm) {
+		padding: 0 20px 35px;
+	}
+
 	&__container {
 		position: relative;
 		width: 100%;
@@ -73,6 +81,10 @@
 			font-size: 24px;
 			line-height: 40px;
 			color: #454545;
+
+			@include media($sm) {
+				display: none;
+			}
 		}
 	}
 }
