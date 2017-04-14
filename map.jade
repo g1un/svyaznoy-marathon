@@ -15,16 +15,17 @@ html
 		+progress()
 
 		template(id='infobox-template', style='dispaly:none;')
-			.infobox
-				.infobox__city Набережные Челны
+			.infobox.js-infobox
+				.infobox__city.js-city Набережные Челны
 				.infobox__distance
-					| Пройденная <br>дистанция, км:
-					span 15
-				.infobox__likes 150
-				.infobox__photos
-				.infobox__link
+					|Пройденная <br>дистанция, км:
+					span.js-distance 15
+				.infobox__likes.js-likes 150
+				a(href='#').infobox__photos.js-photos
+				a(href='#').infobox__link.js-link
 
 		script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBneFWpoU3aGvIOZu-Le2IK-GFPh3dY0IQ")
 		script(src='js/infobox_packed.js')
 		script(src='js/underscore-min.js')
+		script(src='js/cities.js')
 		script(src='js/script.js')
