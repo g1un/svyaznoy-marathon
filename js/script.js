@@ -19,17 +19,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	//google map
 	(function() {
+		if(!document.querySelector('#map')) return;
 
 		//cache dom
 		var mapContainer = document.querySelector('#map');
-		var boxText = document.querySelector('#infobox-template').content.querySelector('.js-infobox');
 
 		initMap();
 
 		//initMap
 		function initMap() {
 
-			//cities
+			//initial position on map
 			var myLatLng = {lat: 55.708327, lng: 52.392155};
 
 			//map
@@ -44,97 +44,105 @@ document.addEventListener('DOMContentLoaded', function(){
 				}]
 			});
 
-			//marker Image
+			//marker Image & position
 			var markerImage = new google.maps.MarkerImage('../img/marker.png',
 				new google.maps.Size(15, 15),
 				new google.maps.Point(0, 0),
 				new google.maps.Point(7, 7)
 			);
 
-			//markers
+			//markers and infoBlock
 			var markers = [];
-			var ib = [];
-			var ibOptions = [];
+			var boxText = function() {
+				if ('content' in document.querySelector('#infobox-template')) {
+					return document.querySelector('#infobox-template').content.querySelector('.js-infobox');
+				} else {
+					return document.querySelector('#infobox-template').querySelector('.js-infobox');
+				}
+			};
+			var ib;
+			var ibOptions = {
+				content: boxText().cloneNode(true)
+				,disableAutoPan: false
+				,maxWidth: 0
+				// ,pixelOffset: getOffset()
+				,zIndex: null
+				,closeBoxURL: ""
+				,infoBoxClearance: new google.maps.Size(1, 1)
+				,isHidden: false
+				,pane: "floatPane"
+				,enableEventPropagation: false
+			};
+			var clipboard;
 
-			cities.forEach(function(city, i) {
-				markers.push(new google.maps.Marker({
+			//creating markers
+			cities.forEach(function(city) {
+				markers[city.id] = new google.maps.Marker({
 					map: map,
 					position: city.coordinates,
 					icon: markerImage
-				}));
-
-				ibOptions.push(
-					{
-						content: boxText.cloneNode(true)
-						,disableAutoPan: false
-						,maxWidth: 0
-						,pixelOffset: new google.maps.Size(window.innerWidth <= 1023 ? -136 : 0, window.innerWidth <= 1023 ? -337 : -377)
-						,zIndex: null
-						,closeBoxURL: ""
-						,infoBoxClearance: new google.maps.Size(1, 1)
-						,isHidden: false
-						,pane: "floatPane"
-						,enableEventPropagation: false
-					}
-				);
-
-				ibOptions[i].content.querySelector('.js-city').innerHTML = city.title;
-				ibOptions[i].content.querySelector('.js-distance').innerHTML = city.distance;
-				ibOptions[i].content.querySelector('.js-likes').innerHTML = city.likes;
-				ibOptions[i].content.querySelector('.js-photos').href = city.linkToPhoto;
-				ibOptions[i].content.querySelector('.js-link').href = city.linkToPage;
-
-				ib.push(new InfoBox(ibOptions[i]));
-
-				google.maps.event.addListener(markers[i], "click", function (e) {
-					ib.forEach(function(_ib) {
-						_ib.close();
-					});
-					ib[i].open(map, this);
 				});
 
+				//bind 'click' event to marker
+				google.maps.event.addListener(markers[city.id], "click", function (e) {
+					if(ib) ib.close();
+
+					var _i = markers.indexOf(this);
+
+					createInfoBox(_i);
+
+					ib.open(map, this);
+				});
+
+				//bind 'click' event to map
 				google.maps.event.addListener(map, "click", function (e) {
-					ib[i].close();
+					if(ib) ib.close();
 				});
 			});
 
-			// var address = {lat: 60.7185054, lng: 40.37210379999999};
-			//
-			// map.setCenter(address);
-			// var marker = new google.maps.Marker({
-			// 	map: map,
-			// 	position: address,
-			// 	icon: markerImage
-			// });
+			//open ib if opened url has hash
+			if(window.location.hash) {
+				createInfoBox(window.location.hash.substr(1));
+				ib.open(map, markers[window.location.hash.substr(1)]);
+			}
 
-			// var myOptions = {
-			// 	content: boxText.cloneNode(true)
-			// 	,disableAutoPan: false
-			// 	,maxWidth: 0
-			// 	,pixelOffset: new google.maps.Size(window.innerWidth <= 1023 ? -136 : 0, window.innerWidth <= 1023 ? -337 : -377)
-			// 	,zIndex: null
-			// 	,closeBoxURL: ""
-			// 	,infoBoxClearance: new google.maps.Size(1, 1)
-			// 	,isHidden: false
-			// 	,pane: "floatPane"
-			// 	,enableEventPropagation: false
-			// };
-			//
-			// google.maps.event.addListener(marker, "click", function (e) {
-			// 	ib.open(map, this);
-			// });
-			//
-			// google.maps.event.addListener(map, "click", function (e) {
-			// 	ib.close();
-			// });
-			//
-			// var ib = new InfoBox(myOptions);
+			//get pixel Offset
+			function getOffset() {
+				return new google.maps.Size(window.innerWidth <= 1023 ? -136 : 0, window.innerWidth <= 1023 ? -337 : -377);
+			}
 
-			// ib.open(map, marker);
-
+			//throttling resizer of infoBox
 			window.addEventListener('resize', _.throttle(resizer, 100));
 
-			//resize
+			//create infoBox
+			function createInfoBox(_i) {
+
+				//searching for object with _i id in cities
+				var city = cities.filter(function(city) {
+					return city.id == _i;
+				})[0];
+
+				//get current pixel Offset property
+				ibOptions.pixelOffset = getOffset();
+
+				//create ib object
+				ib = new InfoBox(ibOptions);
+
+				//insert data for current ib template
+				ibOptions.content.querySelector('.js-city').innerHTML = city.title;
+				ibOptions.content.querySelector('.js-distance').innerHTML = city.distance;
+				ibOptions.content.querySelector('.js-likes').innerHTML = city.likes;
+				ibOptions.content.querySelector('.js-photos')
+					.href = 'http://svyaznoy.loc/cities/view?id=' + city.id;
+
+				//create Clipboard object for copying link to buffer
+				clipboard = new Clipboard(ibOptions.content.querySelector('.js-link'));
+				//set Clipboard attribute to copy
+				ibOptions.content.querySelector('.js-link')
+					.setAttribute('data-clipboard-text', window.location.href.split('#')[0] + '#' + city.id);
+			}
+
+			//resizer for changing infoBox view according to vieport size
 			var smalled;
 
 			function resizer() {
@@ -145,90 +153,13 @@ document.addEventListener('DOMContentLoaded', function(){
 				if(!small() && !smalled && smalled != 'undefined') return;
 
 				if(small()) {
-					ib.forEach(function(_ib) {
-						_ib.setOptions({pixelOffset: new google.maps.Size(-136, -337)});
-					});
+					ib.setOptions({pixelOffset: new google.maps.Size(-136, -337)});
 					smalled = true;
 				} else {
-					ib.forEach(function(_ib) {
-						_ib.setOptions({pixelOffset: new google.maps.Size(0, -377)});
-					});
+					ib.setOptions({pixelOffset: new google.maps.Size(0, -377)});
 					smalled = false;
 				}
 			}
-
-
-
-
-
-			// var geocoder = new google.maps.Geocoder();
-
-			// geocodeAddress(geocoder, map);
-		}
-
-		//geocoder
-		function geocodeAddress(geocoder, resultsMap) {
-
-
-			// geocoder.geocode({'address': address}, function(results, status) {
-			// 	if (status === 'OK') {
-			// 		resultsMap.setCenter(results[0].geometry.location);
-			// 		var marker = new google.maps.Marker({
-			// 			map: resultsMap,
-			// 			position: results[0].geometry.location,
-			// 			icon: markerImage
-			// 		});
-			//
-			// 		var smalled;
-			//
-			// 		var myOptions = {
-			// 			content: boxText.cloneNode(true)
-			// 			,disableAutoPan: false
-			// 			,maxWidth: 0
-			// 			,pixelOffset: new google.maps.Size(window.innerWidth <= 1023 ? -136 : 0, window.innerWidth <= 1023 ? -337 : -377)
-			// 			,zIndex: null
-			// 			,closeBoxURL: ""
-			// 			,infoBoxClearance: new google.maps.Size(1, 1)
-			// 			,isHidden: false
-			// 			,pane: "floatPane"
-			// 			,enableEventPropagation: false
-			// 		};
-			//
-			// 		google.maps.event.addListener(marker, "click", function (e) {
-			// 			ib.open(map, this);
-			// 		});
-			//
-			// 		google.maps.event.addListener(map, "click", function (e) {
-			// 			ib.close();
-			// 		});
-			//
-			// 		var ib = new InfoBox(myOptions);
-			//
-			// 		ib.open(map, marker);
-			//
-			// 		window.addEventListener('resize', _.throttle(resizer, 100));
-			//
-			// 		//resize
-			// 		function resizer() {
-			//
-			// 			var small = function() { return window.innerWidth <= 1023; };
-			//
-			// 			if(small() && smalled) return;
-			// 			if(!small() && !smalled && smalled != 'undefined') return;
-			//
-			// 			if(small()) {
-			// 				ib.setOptions({pixelOffset: new google.maps.Size(-136, -337)});
-			// 				smalled = true;
-			// 			} else {
-			// 				ib.setOptions({pixelOffset: new google.maps.Size(0, -377)});
-			// 				smalled = false;
-			// 			}
-			// 		}
-			//
-			// 	} else {
-			// 		console.log('Geocode was not successful for the following reason: ' + status);
-			// 	}
-			// });
 		}
 	})();
 });

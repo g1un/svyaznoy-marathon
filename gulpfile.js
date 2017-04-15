@@ -71,7 +71,11 @@ gulp.task('reload', function(){
 });
 
 gulp.task('scripts', function() {
-    gulp.src(['js/**/*.js', 'bower_components/underscore/underscore-min.js'])
+    gulp.src([
+        'js/**/*.js',
+        'bower_components/underscore/underscore-min.js',
+        'bower_components/clipboard/dist/clipboard.min.js'
+    ])
     // .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(gulp.dest('../prod/js'))
