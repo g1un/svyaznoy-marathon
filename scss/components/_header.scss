@@ -151,3 +151,25 @@
 		}
 	}
 }
+
+#body--gallery {
+
+	.header {
+
+		&__logo {
+
+			@include media-min(1920px) {
+				left: 50%;
+				margin-left: -897px;
+				width: auto;
+			}
+
+			@media (min-width: 1024px) and (max-width: 1919px) {
+				padding-left: 63px;
+				left: 50%;
+				margin-left: -50%;
+				width: auto;
+			}
+		}
+	}
+}

@@ -1,0 +1,65 @@
+.gallery {
+  font-size: 0;
+  line-height: 0;
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    margin-bottom: 30px;
+
+    img {
+      display: block;
+      height: 235px;
+      max-width: 100%;
+      margin-bottom: 10px;
+
+      @include media($sm) {
+        height: auto;
+        width: 100%;
+      }
+    }
+
+    @include media($sm) {
+      display: block;
+      margin-right: 0;
+    }
+  }
+
+  &__likes {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+      width: 15.41px;
+      height: 13.36px;
+
+      path {
+        fill: #939393;
+      }
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 4px;
+      @include font-srfc-bold();
+      font-size: 20px;
+      line-height: 24 / 20 *1em;
+      color: #939393;
+    }
+  }
+
+  &__comments {
+    display: inline-block;
+    vertical-align: middle;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

@@ -44,6 +44,16 @@ body {
 	}
 }
 
+.container-lg {
+	max-width: 1920px;
+	margin: 0 auto;
+	padding: 0 63px;
+
+	@include media($sm) {
+		padding: 0 18px;
+	}
+}
+
 a {
 	text-decoration: none;
 }

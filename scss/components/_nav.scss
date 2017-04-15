@@ -86,7 +86,8 @@
 	}
 }
 
-#body--marathon {
+#body--marathon,
+#body--gallery {
 
 	@include media-min($sm + 1px) {
 

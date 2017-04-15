@@ -1,0 +1,21 @@
+mixin gallery()
+    .gallery
+        -
+            var i = 0;
+            var images = [
+                'https://www.moooi.com/sites/default/files/styles/large/public/product-images/random_detail.jpg',
+                'https://www.newton.ac.uk/files/covers/968361.jpg',
+                'http://cdn.playbuzz.com/cdn/38402fff-32a3-4e78-a532-41f3a54d04b9/cc513a85-8765-48a5-8481-98740cc6ccdc.jpg',
+                'https://pulsations.files.wordpress.com/2010/05/randomdog.jpg',
+                'http://cdn.ebaumsworld.com/mediaFiles/picture/2266412/84725323.jpg',
+                'http://www.rhaein.com/funnystuff/images/random/random239.jpg'
+            ]
+        while images.length * 3 > i
+            a(href='#').gallery__item
+                img(src='#{images[i%6]}')
+                .gallery__likes
+                    img(src='../src/img/svg/heart.svg')
+                    span!= i%6
+                .gallery__comments
+                    img(src='../src/img/svg/comments.svg')
+            -i++

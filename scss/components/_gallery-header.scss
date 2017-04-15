@@ -1,0 +1,115 @@
+.gallery-header {
+  padding: 125px 0 0;
+  margin: 0 auto 28px;
+
+  &__city {
+    float: left;
+    width: 50%;
+    @include font-srf-bold();
+    font-size: 70px;
+    line-height: 84 / 70 * 1em;
+    color: #2B2C2C;
+
+    @include media($sm) {
+      float: none;
+      width: auto;
+      font-size: 50px;
+    }
+  }
+
+  &__buttons {
+    float: right;
+    margin-left: 30px;
+    height: 84px;
+    font-size: 0;
+    line-height: 0;
+
+    @include media($sm) {
+      height: auto;
+    }
+
+    &:after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+      width: 0;
+    }
+  }
+
+  &__add {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+
+    svg {
+      width: 61px;
+      height: 61px;
+      overflow: visible;
+
+      @include media($sm) {
+        width: 45.4px;
+        height: 45.4px;
+      }
+    }
+  }
+
+  &__grid {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 22px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+
+    svg {
+      width: 61px;
+      height: 61px;
+      overflow: visible;
+
+      @include media($sm) {
+        width: 45.4px;
+        height: 45.4px;
+      }
+    }
+  }
+
+  &__likes {
+    float: right;
+    font-size: 0;
+    line-height: 0;
+
+    @include media($sm) {
+      float: left;
+    }
+
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+      width: 40.7px;
+      height: 35.29px;
+
+      @include media($sm) {
+        width: 29.65px;
+        height: 25.71px;
+      }
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 10px;
+      @include font-srf-bold();
+      font-size: 70px;
+      line-height: 84 / 70 * 1em;
+      color: #2B2C2C;
+      text-align: right;
+
+      @include media($sm) {
+        font-size: 40px;
+        text-align: left;
+      }
+    }
+  }
+}
