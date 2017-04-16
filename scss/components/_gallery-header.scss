@@ -2,6 +2,10 @@
   padding: 125px 0 0;
   margin: 0 auto 28px;
 
+  &._wide {
+    padding-top: 100px;
+  }
+
   &__title {
     float: left;
     width: 50%;
@@ -10,19 +14,21 @@
     line-height: 84 / 70 * 1em;
     color: #2B2C2C;
 
-    &._wide {
-      float: none;
-      width: auto;
-    }
-
     @include media($sm) {
       float: none;
       width: auto;
       font-size: 50px;
+    }
+  }
 
-      &._wide {
+  &._wide {
+
+    .gallery-header__title {
+      float: none;
+      width: auto;
+
+      @include media($sm) {
         font-size: 30px;
-        margin-bottom: 30px;
       }
     }
   }

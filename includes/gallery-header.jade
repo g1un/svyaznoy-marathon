@@ -1,7 +1,7 @@
 mixin gallery-header(title)
-    header.gallery-header.clearfix
-        .gallery-header__title(class='#{title == "Добавить фотографию" ? "_wide" : ""}')!= title
-        if title != 'Добавить фотографию'
+    header.gallery-header(class='#{title != "Нижний Новгород" ? "_wide" : ""}').clearfix
+        .gallery-header__title!= title
+        if title == 'Нижний Новгород'
             .gallery-header__buttons
                 a(href='#').gallery-header__add
                     img(src='../src/img/svg/add-photo.svg')
