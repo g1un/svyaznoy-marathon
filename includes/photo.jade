@@ -1,0 +1,17 @@
+mixin photo()
+    .photo
+        a(href='#').photo__back Вернуться к списку фотографий
+        .photo__image
+            img(src='https://www.moooi.com/sites/default/files/styles/large/public/product-images/random_detail.jpg')
+        .photo__buttons.clearfix
+            a(href='#').photo__likes
+                img(src='../src/img/svg/heart.svg')
+                span 2
+            .photo__share.js-share
+                span Поделиться
+                a(href='#').js-share-vk
+                    img(src='../src/img/svg/vk.svg')
+                a(href='#').js-share-fb
+                    img(src='../src/img/svg/fb.svg')
+            p.photo__comment
+                |Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.

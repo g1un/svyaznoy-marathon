@@ -162,4 +162,60 @@ document.addEventListener('DOMContentLoaded', function(){
 			}
 		}
 	})();
+
+
+
+    //share
+    var shareButtons = {
+        pUrl: location.href,
+        pTitle: document.title,
+        vk: {
+            url: 'http://vkontakte.ru/share.php?'
+        },
+        fb: {
+            url: 'https://www.facebook.com/sharer/sharer.php?s=100'
+        },
+        init: function() {
+            this.cacheDom();
+            this.bindEvents();
+        },
+        cacheDom: function() {
+            this.$el = document.querySelector('.js-share');
+            this.$fb = document.querySelector('.js-share-fb');
+            this.$vk = document.querySelector('.js-share-vk');
+        },
+        bindEvents: function() {
+            this.$fb.addEventListener('click', this.getData.bind(this, 'fb'));
+            this.$vk.addEventListener('click', this.getData.bind(this, 'vk'));
+        },
+        getData: function(net, e) {
+            e.preventDefault();
+            switch(net) {
+                case 'fb':
+                    url = this.fb.url;
+                    url += '&p[title]=' + encodeURIComponent(this.pTitle);
+                    url += '&p[summary]=' + encodeURIComponent('');
+                    url += '&p[url]=' + encodeURIComponent(this.pUrl);
+                    url += '&p[images][0]=' + encodeURIComponent('');
+                    this.share(url);
+                    break;
+                case 'vk':
+                    url = this.vk.url;
+                    url += 'url=' + encodeURIComponent(this.pUrl);
+                    url += '&title=' + encodeURIComponent(this.pTitle);
+                    url += '&description=' + encodeURIComponent('');
+                    url += '&image=' + encodeURIComponent('');
+                    url += '&noparse=false';
+                    this.share(url);
+                    break;
+                default:
+                    return;
+                    break;
+            }
+        },
+        share: function(url) {
+            window.open(url,'','toolbar=0,status=0');
+        }
+    };
+    shareButtons.init();
 });

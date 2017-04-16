@@ -1,0 +1,129 @@
+.photo {
+  max-width: 650px;
+  padding: 145px 0 50px;
+  margin: 0 auto;
+
+  @include media($sm) {
+    padding: 100px 18px 30px;
+  }
+
+  &__back {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 30px;
+    padding-left: 27px;
+    @include font-srf-reg();
+    font-size: 16px;
+    line-height: 22 / 16 * 1em;
+    color: #231F20;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      margin-top: -3px;
+      left: 10px;
+      width: 6px;
+      height: 6px;
+      border-left: 1px solid #231F20;
+      border-bottom: 1px solid #231F20;
+      transform: rotate(45deg);
+    }
+  }
+
+  &__image {
+    margin-bottom: 15px;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__likes {
+    float: left;
+    display: block;
+
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 3px;
+      width: 19.78px;
+      height: 17.15px;
+      overflow: visible;
+
+      @include media($sm) {
+        width: 23.8px;
+        height: 20.64px;
+      }
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      @include font-srf-bold();
+      font-size: 28px;
+      line-height: 34 / 28 * 1em;
+      color: #2B2C2C;
+
+      @include media($sm) {
+        font-size: 30px;
+        line-height: 36 / 30 * 1em;
+      }
+    }
+  }
+
+  &__share {
+    float: right;
+    margin-bottom: 50px;
+    text-align: right;
+
+    @include media($sm) {
+      margin-bottom: 30px;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      @include font-srf-reg();
+      font-size: 18px;
+      line-height: 26 / 18 * 1em;
+
+      @include media($sm) {
+        display: none;
+      }
+    }
+
+    a {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 15px;
+
+      & + a {
+        margin-left: 4px;
+      }
+
+      svg {
+        width: 34px;
+        height: 34px;
+        overflow: visible;
+        @include font-srf-bold();
+        font-size: 15px;
+        line-height: 18 / 15 * 1em;
+
+        @include media($sm) {
+          width: 43px;
+          height: 43px;
+        }
+      }
+    }
+  }
+
+  &__comment {
+    clear: both;
+    @include font-srf-reg();
+    font-size: 22px;
+    line-height: 26 / 22 * 1em;
+    color: #2B2C2C;
+  }
+}
