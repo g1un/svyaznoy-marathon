@@ -5,6 +5,7 @@ var cities = [
 		"title": "Москва",
 		"distance": "7.8",
 		"likes": "450",
+		"url": "url1",
 		"linkToPhoto": "1"
 	},
 	{
@@ -13,6 +14,7 @@ var cities = [
 		"title": "Набережные Челны",
 		"distance": "15",
 		"likes": "150",
+		"url": "url2",
 		"linkToPhoto": "2"
 	}
 ];

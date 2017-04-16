@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function(){
 				content: boxText().cloneNode(true)
 				,disableAutoPan: false
 				,maxWidth: 0
-				// ,pixelOffset: getOffset()
 				,zIndex: null
 				,closeBoxURL: ""
 				,infoBoxClearance: new google.maps.Size(1, 1)
@@ -132,8 +131,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				ibOptions.content.querySelector('.js-city').innerHTML = city.title;
 				ibOptions.content.querySelector('.js-distance').innerHTML = city.distance;
 				ibOptions.content.querySelector('.js-likes').innerHTML = city.likes;
-				ibOptions.content.querySelector('.js-photos')
-					.href = 'http://svyaznoy.loc/cities/view?id=' + city.id;
+				ibOptions.content.querySelector('.js-photos').href = city.url;
 
 				//create Clipboard object for copying link to buffer
 				clipboard = new Clipboard(ibOptions.content.querySelector('.js-link'));
@@ -176,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function(){
             url: 'https://www.facebook.com/sharer/sharer.php?s=100'
         },
         init: function() {
+        	if(!this.$el) return;
             this.cacheDom();
             this.bindEvents();
         },
@@ -218,4 +217,16 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     };
     shareButtons.init();
+
+	//progress info offset
+	(function() {
+		if(!document.querySelector('.js-progress-info')) return;
+
+		//cache Dom
+		var info = document.querySelector('.js-progress-info');
+		var infoOffsetLeft = info.getBoundingClientRect().left;
+
+		//check if info offset < 0
+		if(infoOffsetLeft < 0) info.classList.add('_right');
+	})();
 });

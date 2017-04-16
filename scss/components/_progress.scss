@@ -57,21 +57,23 @@
 
 	&__info {
 		position: absolute;
-		bottom: 100%;
+		bottom: 0;
 		right: -15px;
 		height: 54px;
-		padding: 1px 73px 9px 0;
+		//padding: 1px 73px 9px 0;
+		@include sprite($runner);
 
-		&:after {
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			@include sprite($runner);
-		}
+		//&:after {
+		//	content: '';
+		//	position: absolute;
+		//	top: 0;
+		//	right: 0;
+		//}
 
 		span {
 			display: block;
+			position: absolute;
+			right: 100%;
 			padding: 0 18px;
 			height: 44px;
 			border-radius: 20px;
@@ -81,6 +83,11 @@
 			font-size: 24px;
 			line-height: 40px;
 			color: #454545;
+
+			&._right {
+				right: auto;
+				left: 100%;
+			}
 
 			@include media($sm) {
 				display: none;
