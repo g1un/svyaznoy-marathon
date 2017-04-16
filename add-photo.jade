@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        title «Связной»
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width")
+        link(rel='stylesheet', type='text/css', href='css/style.css')
+    body#body--gallery
+        include includes/header
+        include includes/gallery-header
+        include includes/add-photo
+        include includes/footer
+
+        +header()
+        .container-lg
+            +gallery-header('Добавить фотографию')
+            +add-photo
+        +footer()

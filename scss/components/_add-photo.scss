@@ -1,0 +1,121 @@
+.add-photo {
+  padding-bottom: 60px;
+  font-size: 0;
+
+  @include media($sm) {
+    padding-bottom: 20px;
+  }
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 18px;
+    margin-bottom: 18px;
+    padding: 25px 24px;
+    width: 320px;
+    background: #E3E3E3;
+    font-size: 0;
+    line-height: 0;
+    text-align: center;
+
+    @include media($sm) {
+      display: block;
+      width: auto;
+      margin: 0 -18px 12px;
+    }
+
+    img {
+      display: inline-block;
+      vertical-align: top;
+      max-width: 100%;
+      height: 146px;
+      margin-bottom: 14px;
+    }
+  }
+
+  &__textarea {
+    display: block;
+    width: 100%;
+    min-height: 101px;
+    padding: 11px 13px;
+    margin-bottom: 13px;
+    border: 1px solid #95989A;
+    background: transparent;
+    @include font-srf-reg();
+    font-size: 14px;
+    line-height: 15 / 14 * 1em;
+    color: #95989A;
+  }
+
+  &__del {
+    display: block;
+    float: right;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+      width: 13px;
+      height: 13px;
+      margin-right: 4px;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      @include font-srf-reg();
+      font-size: 14px;
+      line-height: 15 / 14 * 1em;
+      color: #95989A;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+
+    @include media($sm) {
+      display: block;
+      float: left;
+      margin-top: 20px;
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  &__submit {
+    margin-top: 60px;
+    text-align: center;
+
+    @include media($sm) {
+      float: right;
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    input {
+      display: inline-block;
+      vertical-align: top;
+      min-width: 128px;
+      height: 40px;
+      background: #60BB4F;
+      border-radius: 30px;
+      border: none;
+      @include font-srf-reg();
+      font-size: 14px;
+      line-height: 15 / 14 * 1em;
+      color: #fff;
+    }
+  }
+}

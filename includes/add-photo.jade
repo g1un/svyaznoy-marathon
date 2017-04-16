@@ -1,0 +1,23 @@
+mixin add-photo()
+    form(action='#', method='get').add-photo.clearfix
+        -
+            var images = [
+                'https://www.moooi.com/sites/default/files/styles/large/public/product-images/random_detail.jpg',
+                'https://www.newton.ac.uk/files/covers/968361.jpg',
+                'http://cdn.playbuzz.com/cdn/38402fff-32a3-4e78-a532-41f3a54d04b9/cc513a85-8765-48a5-8481-98740cc6ccdc.jpg',
+                'https://pulsations.files.wordpress.com/2010/05/randomdog.jpg',
+                'http://cdn.ebaumsworld.com/mediaFiles/picture/2266412/84725323.jpg',
+                'http://www.rhaein.com/funnystuff/images/random/random239.jpg'
+            ]
+        each val in images
+            .add-photo__item.clearfix
+                img(src='#{val}')
+                textarea(name='add-text', id='add-text').add-photo__textarea Место для описания фотографии, не более 200 символов
+                button(type='button', name='photo-del', id='photo-del').add-photo__del
+                    img(src='../src/img/svg/del.svg')
+                    span Удалить
+        label.add-photo__button
+            img(src='../src/img/svg/add.svg')
+            input(type='file', name='add-photo', id='add-photo')
+        .add-photo__submit
+            input(type='submit', name='add-photo-submit', id='add-photo-submit', value='Подтвердить')

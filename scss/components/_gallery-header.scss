@@ -2,7 +2,7 @@
   padding: 125px 0 0;
   margin: 0 auto 28px;
 
-  &__city {
+  &__title {
     float: left;
     width: 50%;
     @include font-srf-bold();
@@ -10,10 +10,20 @@
     line-height: 84 / 70 * 1em;
     color: #2B2C2C;
 
+    &._wide {
+      float: none;
+      width: auto;
+    }
+
     @include media($sm) {
       float: none;
       width: auto;
       font-size: 50px;
+
+      &._wide {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
     }
   }
 

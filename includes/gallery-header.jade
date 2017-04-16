@@ -1,11 +1,12 @@
-mixin gallery-header()
+mixin gallery-header(title)
     header.gallery-header.clearfix
-        .gallery-header__city Нижний Новгород
-        .gallery-header__buttons
-            a(href='#').gallery-header__add
-                img(src='../src/img/svg/add-photo.svg')
-            button.gallery-header__grid
-                img(src='../src/img/svg/grid.svg')
-        .gallery-header__likes
-            img(src='../src/img/svg/heart.svg')
-            span!= 500
+        .gallery-header__title(class='#{title == "Добавить фотографию" ? "_wide" : ""}')!= title
+        if title != 'Добавить фотографию'
+            .gallery-header__buttons
+                a(href='#').gallery-header__add
+                    img(src='../src/img/svg/add-photo.svg')
+                button.gallery-header__grid
+                    img(src='../src/img/svg/grid.svg')
+            .gallery-header__likes
+                img(src='../src/img/svg/heart.svg')
+                span!= 500
