@@ -9,7 +9,7 @@ mixin header()
 				ul.nav__list
 					each val, i in ["О проекте", "Забег", "Рейтинг", "Фотографии"]
 						li.nav__item(class='#{i == 0 ? "active" : ""}')
-							a(href='#').nav__link!= val
+							a(href='#', title='#{val}').nav__link!= val
 				.nav__tag #марафонсвязного
 			.header__hamburger.js-hamburger
 				span

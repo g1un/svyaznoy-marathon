@@ -55,6 +55,18 @@
 		line-height: 33px;
 		color: #fff;
 
+		&:after {
+			content: attr(title);
+			display: block;
+			@include font-srf-bold();
+			color: transparent;
+			white-space: nowrap;
+			height: 1px;
+			overflow: hidden;
+			visibility: hidden;
+			margin-bottom: -1px;
+		}
+
 		@include media($md) {
 			padding: 0 10px;
 			font-size: 14px;

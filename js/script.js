@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				,maxWidth: 0
 				,zIndex: null
 				,closeBoxURL: ""
-				,infoBoxClearance: new google.maps.Size(1, 1)
+				,infoBoxClearance: new google.maps.Size(1, 81)
 				,isHidden: false
 				,pane: "floatPane"
 				,enableEventPropagation: false
