@@ -25,7 +25,8 @@ mixin rating()
                 td.rating__td!= lines[i%3].title
                 td.rating__td
                     .rating__image
-                        img(src='#{lines[i%3].image}')
+                        a(href='#{lines[i%3].image}', data-lightbox="image-#{i+1}")
+                            img(src='#{lines[i%3].image}')
                 td.rating__td 352
                 td.rating__td 352
                 td.rating__td 6

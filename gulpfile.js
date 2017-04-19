@@ -77,7 +77,7 @@ gulp.task('scripts', function() {
         'bower_components/clipboard/dist/clipboard.min.js'
     ])
     // .pipe(concat('all.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('../prod/js'))
     .pipe(browserSync.reload({
         stream: true
