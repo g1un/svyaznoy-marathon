@@ -167,23 +167,23 @@
 
 	.header {
 
-		&__container {
-			@extend .container-lg;
-			position: relative;
-
-			@include media($md) {
-				padding-left: 288px;
-			}
-
-			@include media($sm) {
-				padding: 0 0 0 18px;
-			}
-		}
+		//&__container {
+		//	@extend .container-lg;
+		//	position: relative;
+        //
+		//	@include media($md) {
+		//		padding-left: 288px;
+		//	}
+        //
+		//	@include media($sm) {
+		//		padding: 0 0 0 18px;
+		//	}
+		//}
 
 		&__logo {
-			left: 63px;
-			width: auto;
-			background: transparent;
+			//left: 63px;
+			//width: auto;
+			//background: transparent;
 
 			&-wrapper {
 				position: relative;
