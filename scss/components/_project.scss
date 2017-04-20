@@ -1,7 +1,7 @@
 .project {
 	display: table;
 	width: 100%;
-	background: url(../img/project-bg.jpg) no-repeat center top;
+	background: url(../img/project-bg-1.jpg) no-repeat center top;
 	background-size: cover;
 
 	&__wrapper {
@@ -40,8 +40,8 @@
 		@include media($sm) {
 			margin-bottom: 50px;
 			@include font-srf-bold();
-			font-size: 47px;
-			line-height: 48px;
+			font-size: 39px;
+			line-height: 1em;
 		}
 	}
 
@@ -78,7 +78,7 @@
 		@include font-srf-reg();
 		font-size: 20px;
 		line-height: 1.2em;
-		color: $silver;
+		color: #bfbfbf;
 		letter-spacing: .2em;
 		text-transform: uppercase;
 

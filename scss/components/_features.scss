@@ -1,5 +1,16 @@
 .features {
 
+	&__item {
+
+		@include media($sm) {
+			margin-bottom: 25px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
 	&__title {
 		margin-bottom: 16px;
 		@include font-srfc-bold();
@@ -8,10 +19,6 @@
 		color: #fff;
 		letter-spacing: -0.045em;
 		white-space: nowrap;
-
-		.plus {
-			display: none;
-		}
 
 		@include media($lg) {
 			margin-bottom: 13px;
@@ -23,15 +30,10 @@
 		}
 
 		@include media($sm) {
-			margin-bottom: 0;
+			margin-bottom: 15px;
 			font-size: 45px;
 			line-height: 41px;
-			text-align: center;
 			white-space: nowrap;
-
-			.plus {
-				display: block;
-			}
 		}
 	}
 
@@ -39,7 +41,7 @@
 		@include font-srf-reg();
 		font-size: 16px;
 		line-height: 19 / 16 * 1em;
-		color: $silver;
+		color: #d3d3d3;
 
 		@include media($lg) {
 			font-size: 12px;
@@ -49,10 +51,6 @@
 		@include media($md) {
 			font-size: 16px;
 			line-height: 19 / 16 * 1em;
-		}
-
-		@include media($sm) {
-			display: none;
 		}
 	}
 }
