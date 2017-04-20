@@ -125,7 +125,8 @@
 		width: 50%;
 		height: 115px;
 		background: #90c74b;
-		cursor: pointer;
+		//cursor: pointer;
+		cursor: default;
 
 		@include media($sm) {
 			height: 100px;
