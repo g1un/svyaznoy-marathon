@@ -1,34 +1,35 @@
 mixin rating()
-    table.rating
-        tr.rating__tr
-            each val in ["Место", "Название команды", "Фотография", "Баллы", "Расстояние, км", "Человек в команде", "Дата"]
-                th.rating__th!= val
-        -
-            var lines = [
-                {
-                    "title": "Очень длинное название",
-                    "image": "https://www.moooi.com/sites/default/files/styles/large/public/product-images/random_detail.jpg"
-                },
-                {
-                    "title": "Короткое название",
-                    "image": "https://www.newton.ac.uk/files/covers/968361.jpg"
-                },
-                {
-                    "title": "Свадьба КонстантинопольскогоКонстантинопольскогоКонстантинопольского",
-                    "image": "http://www.rhaein.com/funnystuff/images/random/random239.jpg"
-                }
-            ];
-        -var i = 0;
-        while i < 10
+    .rating-wrapper
+        table.rating
             tr.rating__tr
-                td!= i+1
-                td.rating__td!= lines[i%3].title
-                td.rating__td
-                    .rating__image
-                        a(href='#{lines[i%3].image}', data-lightbox="image-#{i+1}")
-                            img(src='#{lines[i%3].image}')
-                td.rating__td 352
-                td.rating__td 352
-                td.rating__td 6
-                td.rating__td 21.04
-            -i++
+                each val in ["Место", "Название команды", "Фотография", "Баллы", "Расстояние, км", "Человек в команде", "Дата"]
+                    th.rating__th!= val
+            -
+                var lines = [
+                    {
+                        "title": "Очень длинное название",
+                        "image": "https://www.moooi.com/sites/default/files/styles/large/public/product-images/random_detail.jpg"
+                    },
+                    {
+                        "title": "Короткое название",
+                        "image": "https://www.newton.ac.uk/files/covers/968361.jpg"
+                    },
+                    {
+                        "title": "Свадьба КонстантинопольскогоКонстантинопольскогоКонстантинопольского",
+                        "image": "http://www.rhaein.com/funnystuff/images/random/random239.jpg"
+                    }
+                ];
+            -var i = 0;
+            while i < 10
+                tr.rating__tr
+                    td!= i+1
+                    td.rating__td!= lines[i%3].title
+                    td.rating__td
+                        .rating__image
+                            a(href='#{lines[i%3].image}', data-lightbox="image-#{i+1}")
+                                img(src='#{lines[i%3].image}')
+                    td.rating__td 352
+                    td.rating__td 352
+                    td.rating__td 6
+                    td.rating__td 21.04
+                -i++
