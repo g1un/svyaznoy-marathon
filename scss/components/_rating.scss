@@ -1,6 +1,7 @@
 .rating {
   max-width: 1920px;
   width: 100%;
+  min-width: 1024px;
   margin: 0 auto;
   table-layout: fixed;
   
@@ -72,19 +73,19 @@
 
     @include media($sm) {
 
-      &:nth-child(n+3) {
-        display: none;
-      }
+      //&:nth-child(n+3) {
+      //  display: none;
+      //}
 
       &:nth-child(1) {
         padding-left: 29px;
-        width: 76px;
+        //width: 76px;
       }
 
       &:nth-child(2) {
         padding-left: 24px;
         padding-right: 10px;
-        width: auto;
+        //width: auto;
       }
     }
   }
@@ -145,19 +146,19 @@
 
     @include media($sm) {
 
-      &:nth-child(n+3) {
-        display: none;
-      }
+      //&:nth-child(n+3) {
+      //  display: none;
+      //}
 
       &:nth-child(1) {
         padding-left: 29px;
-        width: 76px;
+        width: 76 / 1024 * 100%;
       }
 
       &:nth-child(2) {
         padding-left: 24px;
         padding-right: 10px;
-        width: auto;
+        //width: auto;
         font-size: 25px;
         line-height: 30 / 25 * 1em;
       }
