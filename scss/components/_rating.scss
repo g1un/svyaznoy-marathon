@@ -72,18 +72,20 @@
     }
 
     @include media($sm) {
+      padding-bottom: 2px;
+      height: auto;
 
       //&:nth-child(n+3) {
       //  display: none;
       //}
 
       &:nth-child(1) {
-        padding-left: 29px;
+        padding-left: 40px;
         //width: 76px;
       }
 
       &:nth-child(2) {
-        padding-left: 24px;
+        padding-left: 13px;
         padding-right: 10px;
         //width: auto;
       }
@@ -151,12 +153,12 @@
       //}
 
       &:nth-child(1) {
-        padding-left: 29px;
+        padding-left: 40px;
         width: 76 / 1024 * 100%;
       }
 
       &:nth-child(2) {
-        padding-left: 24px;
+        padding-left: 13px;
         padding-right: 10px;
         //width: auto;
         font-size: 25px;
