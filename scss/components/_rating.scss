@@ -6,8 +6,11 @@
   table-layout: fixed;
 
 	&-wrapper {
-		width: 100%;
-		overflow-y: scroll;
+
+    @include media($sm) {
+      width: 100%;
+      overflow: auto;
+    }
 	}
   
   tr {
