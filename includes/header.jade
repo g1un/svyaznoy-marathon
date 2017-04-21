@@ -10,6 +10,8 @@ mixin header()
 					each val, i in ["О проекте", "Забег", "Рейтинг", "Фотографии"]
 						li.nav__item(class='#{i == 0 ? "active" : ""}')
 							a(href='#', title='#{val}').nav__link!= val
-				.nav__tag #марафонсвязного
+				.nav__tag
+					|#марафонсвязного<br>
+					span #связнойвперед
 			.header__hamburger.js-hamburger
 				span

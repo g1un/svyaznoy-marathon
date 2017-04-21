@@ -318,4 +318,22 @@ document.addEventListener('DOMContentLoaded', function(){
 		//check if info offset < 0
 		if(infoOffsetLeft < 0) info.classList.add('_right');
 	})();
+
+	//rating photo
+	(function() {
+		if(!document.querySelector('.js-rating-photo')) return;
+
+		//cache Dom
+		var photos = document.querySelectorAll('.js-rating-photo');
+
+		//bind events
+		photos.forEach(function(photo) {
+			photo.addEventListener('click', showPhoto);
+		});
+
+		//showPhoto
+		function showPhoto() {
+
+		}
+	})();
 });

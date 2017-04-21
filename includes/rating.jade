@@ -26,10 +26,15 @@ mixin rating()
                     td.rating__td!= lines[i%3].title
                     td.rating__td
                         .rating__image
-                            a(href='#{lines[i%3].image}', data-lightbox="image-#{i+1}")
+                            a(href='#{lines[i%3].image}').js-rating-photo
                                 img(src='#{lines[i%3].image}')
                     td.rating__td 352
                     td.rating__td 352
                     td.rating__td 6
                     td.rating__td 21.04
                 -i++
+
+    template(id='photo', style='dispaly:none;')
+        .photo-overlay
+            .photo__close Закрыть
+            .photo

@@ -1,0 +1,128 @@
+.login {
+	display: table;
+	width: 100%;
+	background: url(../img/project-bg.jpg) no-repeat center top;
+	background-size: cover;
+	position: relative;
+
+	@include media($sm) {
+		display: block;
+	}
+
+	&__container {
+		height: 100vh;
+		padding: 110px 0;
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 0;
+
+		@include media($sm) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: auto;
+			min-height: 100vh;
+			padding: 215px 30px 40px;
+		}
+	}
+
+	&__left {
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 90px;
+		text-align: left;
+
+		@include media($sm) {
+			order: 2;
+			margin: 0;
+			text-align: center;
+		}
+	}
+
+	&__enter {
+		display: inline-block;
+		vertical-align: top;
+		min-width: 173px;
+		height: 68px;
+		padding: 0 10px;
+		margin-bottom: 20px;
+		border-radius: 34px;
+		background: #91c64a;
+		@include font-srf-reg();
+		font-size: 29px;
+		line-height: 68 / 29 * 1em;
+		color: #fff;
+		text-transform: uppercase;
+		text-align: center;
+
+		@include media($sm) {
+			margin-bottom: 30px;
+		}
+	}
+
+	&__text {
+		max-width: 270px;
+		@include font-srf-reg();
+		font-size: 16px;
+		line-height: 19 / 16 * 1em;
+		color: #fff;
+		text-align: left;
+
+		@include media($sm) {
+			width: auto;
+			text-align: center;
+		}
+	}
+
+	&__right {
+		display: inline-block;
+		vertical-align: top;
+
+		@include media($sm) {
+			order: 1;
+			margin-bottom: 105px;
+		}
+	}
+
+	&__title {
+		@include font-srf-bold();
+		font-size: 49px;
+		line-height: 50 / 49 * 1em;
+		color: #90c649;
+		text-transform: uppercase;
+		text-align: left;
+
+		span {
+			color: #faab3b;
+		}
+
+		@include media($sm) {
+			font-size: 34px;
+			line-height: 35 / 34 * 1em;
+			text-align: center;
+		}
+	}
+
+	&__tag {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 60px;
+		@include font-srf-reg();
+		font-size: 20px;
+		line-height: 1.2em;
+		color: #bfbfbf;
+		letter-spacing: .2em;
+		text-transform: uppercase;
+		text-align: center;
+
+		span {
+			text-transform: none;
+		}
+
+		@include media($sm) {
+			display: none;
+		}
+	}
+}

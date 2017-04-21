@@ -82,6 +82,10 @@
 		letter-spacing: .2em;
 		text-transform: uppercase;
 
+		span {
+			text-transform: none;
+		}
+
 		@include media($sm) {
 			font-size: 16px;
 		}

@@ -153,3 +153,18 @@
 		}
 	}
 }
+
+#body--login {
+
+	.header__nav {
+		display: none;
+	}
+
+	.header__logo {
+		margin: 0 auto;
+	}
+
+	.header__hamburger {
+		display: none;
+	}
+}

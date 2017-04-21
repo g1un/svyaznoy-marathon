@@ -1,0 +1,26 @@
+doctype html
+html
+	head
+		title «Связной»
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width")
+		link(rel='stylesheet', type='text/css', href='css/style.css')
+	body#body--login
+		include includes/footer
+
+		.header._nav-off
+			.header__container
+				.header__logo
+					.header__logo-wrapper
+						img(src="../src/img/svg/logo.svg")
+						| Марафон
+		.login
+			.login__container
+				.login__left
+					a(href='#').login__enter Войти
+					p.login__text Сотрудникам розницы необходимо использовать ШК и пароль для доступа с личных устройств (например, к СДО), сгенерированный в "Мой связной".<br>
+						|Сотрудникам офиса - почту через maxus.ru и пароль, как для входа в Citrix и в систему.
+				.login__right
+					h2.login__title СЛЕДИ<br> ЗА МАРАФОНОМ<br> <span>"СВЯЗНОГО"</span>!
+			.login__tag #марафонсвязного <br><span>#связнойвперед</span>
+		+footer()
