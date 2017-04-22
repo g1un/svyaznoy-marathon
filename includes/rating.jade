@@ -2,7 +2,7 @@ mixin rating()
     .rating-wrapper
         table.rating
             tr.rating__tr
-                each val in ["Место", "Название", "Фотография", "Баллы", "Расстояние, км", "Человек в команде", "Дата"]
+                each val in ["Место", "Название", "Капитан", "Город", "Фотография", "Баллы", "Расстояние, км", "Человек в команде", "Дата"]
                     th.rating__th!= val
             -
                 var lines = [
@@ -24,6 +24,8 @@ mixin rating()
                 tr.rating__tr
                     td!= i+1
                     td.rating__td!= lines[i%3].title
+                    td.rating__td Иван Констанопольский
+                    td.rating__td Мохенджо-Даро
                     td.rating__td
                         .rating__image
                             a(href='#{lines[i%3].image}').js-magnificPopup

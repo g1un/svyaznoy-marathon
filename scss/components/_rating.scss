@@ -36,7 +36,7 @@
     color: #939393;
     text-align: left;
 
-    &:nth-child(4) {
+    &:nth-child(6) {
       padding-right: 0;
       background: #F89B24;
       color: #000;
@@ -50,27 +50,37 @@
     }
 
     &:nth-child(2) {
-      padding-right: 35px;
-      width: 306 / 1024 * 100%;
+      padding-right: 10px;
+      width: 106 / 1024 * 100%;
     }
 
     &:nth-child(3) {
+      padding-right: 10px;
+      width: 100 / 1024 * 100%;
+    }
+
+    &:nth-child(4) {
+      padding-right: 10px;
+      width: 100 / 1024 * 100%;
+    }
+
+    &:nth-child(5) {
       padding-right: 32px;
       width: 131 / 1024 * 100%;
     }
 
-    &:nth-child(4) {
+    &:nth-child(6) {
       padding-right: 0;
       width: 78 / 1024 * 100%;
     }
 
-    &:nth-child(5) {
+    &:nth-child(7) {
       padding-left: 32px;
       padding-right: 35px;
       width: 160 / 1024 * 100%;
     }
 
-    &:nth-child(6) {
+    &:nth-child(8) {
       padding-right: 39px;
       width: 116 / 1024 * 100%;
     }
@@ -118,18 +128,32 @@
     }
 
     &:nth-child(2) {
-      width: 306 / 1024 * 100%;
-      padding-right: 35px;
+      width: 106 / 1024 * 100%;
+      padding-right: 10px;
       @include font-srfc-bold();
       word-wrap: break-word;
     }
 
     &:nth-child(3) {
+      width: 100 / 1024 * 100%;
+      padding-right: 10px;
+      @include font-srfc-bold();
+      word-wrap: break-word;
+    }
+
+    &:nth-child(4) {
+      width: 100 / 1024 * 100%;
+      padding-right: 10px;
+      @include font-srfc-bold();
+      word-wrap: break-word;
+    }
+
+    &:nth-child(5) {
       width: 131 / 1024 * 100%;
       padding-right: 32px;
     }
 
-    &:nth-child(4) {
+    &:nth-child(6) {
       width: 78 / 1024 * 100%;
       padding-right: 0;
       background: #F89B24;
@@ -139,13 +163,13 @@
       text-align: center;
     }
 
-    &:nth-child(5) {
+    &:nth-child(7) {
       width: 160 / 1024 * 100%;
       padding-left: 32px;
       padding-right: 35px;
     }
 
-    &:nth-child(6) {
+    &:nth-child(8) {
       width: 77 / 1024 * 100%;
       padding-right: 39px;
     }
