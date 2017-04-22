@@ -181,6 +181,11 @@
     a{
       display: block;
       height: 100%;
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
     }
 
     img {
