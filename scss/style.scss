@@ -1,6 +1,6 @@
 //plugins
 @import "plugins/normalize";
-@import "plugins/lightbox";
+@import "plugins/magnific-popup";
 
 //base
 @import 'components/variables';
@@ -25,4 +25,5 @@
 @import 'components/photo';
 @import 'components/rating';
 @import 'components/login';
+@import 'components/magnific-popup';
 @import 'components/footer';

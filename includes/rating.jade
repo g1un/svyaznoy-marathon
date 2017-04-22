@@ -26,7 +26,7 @@ mixin rating()
                     td.rating__td!= lines[i%3].title
                     td.rating__td
                         .rating__image
-                            a(href='#{lines[i%3].image}').js-rating-photo
+                            a(href='#{lines[i%3].image}').js-magnificPopup
                                 img(src='#{lines[i%3].image}')
                     td.rating__td 352
                     td.rating__td 352
@@ -34,7 +34,10 @@ mixin rating()
                     td.rating__td 21.04
                 -i++
 
-    template(id='photo', style='dispaly:none;')
-        .photo-overlay
-            .photo__close Закрыть
-            .photo
+    //-template(id='photo', style='dispaly:none;')
+        .rating-photo-overlay.js-rating-photo-view
+            .rating-photo__close.js-rating-photo-close
+                img(src='../src/img/svg/close.svg', width='13', height='13')
+                |Закрыть
+            .rating-photo.js-rating-photo-wrapper
+                img(src='', alt='image')

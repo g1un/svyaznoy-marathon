@@ -320,20 +320,90 @@ document.addEventListener('DOMContentLoaded', function(){
 	})();
 
 	//rating photo
+	// (function() {
+	// 	if(!document.querySelector('.js-rating-photo')) return;
+	//
+	// 	//cache Dom
+	// 	var photos = document.querySelectorAll('.js-rating-photo');
+	// 	var photoView;
+	// 	var template = (function() {
+	// 		if ('content' in document.querySelector('#photo')) {
+	// 			return document.querySelector('#photo').content.querySelector('.js-rating-photo-view');
+	// 		} else {
+	// 			return document.querySelector('#photo').querySelector('.js-rating-photo-view');
+	// 		}
+	// 	})();
+	// 	var photoDimensions = {
+	// 		"width": null,
+	// 		"height": null
+	// 	};
+	// 	var closeHeight;
+	//
+	// 		//bind events
+	// 	[].forEach.call(photos, function(photo) {
+	// 		photo.addEventListener('click', showPhoto);
+	// 	});
+	//
+	// 	//showPhoto
+	// 	function showPhoto(e) {
+	// 		e.preventDefault();
+	//
+	// 		photoView = template.cloneNode(true);
+	//
+	// 		photoView.querySelector('img').src = this.href;
+	// 		document.body.appendChild(photoView);
+	//
+	// 		var closeBtn = document.querySelector('.js-rating-photo-close');
+	//
+	// 		closePosition(closeBtn);
+	// 		var throttleResize = _.throttle(closePosition.bind(this, closeBtn), 100);
+	//
+	// 		window.addEventListener('resize', throttleResize);
+	// 		window.addEventListener('click', closeOnBckgroundClick);
+	//
+	// 		closeBtn.addEventListener('click', removePhoto);
+	// 	}
+	//
+	// 	//removePhoto
+	// 	function removePhoto() {
+	// 		document.body.removeChild(photoView);
+	// 		// close.removeEventListener('click', removePhoto);
+	// 	}
+	//
+	// 	//closePosition
+	// 	function closePosition(closeBtn) {
+	// 		closeHeight = closeBtn.clientHeight;
+	// 		photoDimensions.width = photoView.querySelector('img').clientWidth ;
+	// 		photoDimensions.height = photoView.querySelector('img').clientHeight;
+	//
+	// 		closeBtn.style.marginTop = -photoDimensions.height / 2 - closeHeight + 'px';
+	// 		closeBtn.style.marginRight = -photoDimensions.width / 2 + 'px';
+	// 	}
+	//
+	// 	//closeOnBckgroundClick
+	// 	function closeOnBckgroundClick(e) {
+	// 		if(e.target.classList.contains('js-rating-photo-view') || e.target.classList.contains('js-rating-photo-wrapper')) {
+	// 			removePhoto();
+	// 			window.removeEventListener('click', closeOnBckgroundClick);
+	// 		}
+	// 	}
+	// })();
+
 	(function() {
-		if(!document.querySelector('.js-rating-photo')) return;
-
-		//cache Dom
-		var photos = document.querySelectorAll('.js-rating-photo');
-
-		//bind events
-		photos.forEach(function(photo) {
-			photo.addEventListener('click', showPhoto);
+		$(document).ready(function() {
+			$('.js-magnificPopup').magnificPopup({
+				type:'image',
+				closeMarkup:
+							'<div class="rating-photo-close mfp-close">' +
+								'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-59.6 562.2 13.1 13.1">' +
+									'<circle fill="#F86524" cx="-53" cy="568.8" r="6.6"/>' +
+									'<g fill="#FFF">' +
+										'<path d="M-51.782 571.193l-3.606-3.606c-.283-.283-.354-.778-.07-1.203l.07-.07c.283-.283.778-.354 1.202-.07l.07.07 3.607 3.606c.283.283.353.778.07 1.202l-.07.07a.896.896 0 0 1-1.273 0c.07.072 0 0 0 0z"/>' +
+										'<path d="M-55.388 569.99l3.606-3.606c.283-.282.778-.353 1.202-.07l.07.07c.284.283.354.778.072 1.203l-.071.07-3.606 3.607c-.283.282-.778.353-1.202.07l-.071-.07a.896.896 0 0 1 0-1.273c-.07.07 0 0 0 0z"/>' +
+									'</g>' +
+								'</svg>Закрыть' +
+							'</div>'
+			});
 		});
-
-		//showPhoto
-		function showPhoto() {
-
-		}
 	})();
 });

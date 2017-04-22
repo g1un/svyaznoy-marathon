@@ -1,0 +1,34 @@
+.mfp-bg {
+	background: rgba(47,47,47,.69);
+	opacity: 1;
+}
+
+.mfp-zoom-out-cur {
+	cursor: default;
+}
+
+.mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+	cursor: pointer;
+}
+
+.mfp-figure::after {
+	box-shadow: none;
+}
+
+.rating-photo-close {
+	padding-bottom: 5px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	opacity: 1;
+	@include font-srf-reg();
+	font-size: 14px;
+	line-height: 1.2em;
+	color: #fff;
+
+	svg {
+		width: 13px;
+		height: 13px;
+		margin-right: 3px;
+	}
+}
