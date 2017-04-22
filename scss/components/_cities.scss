@@ -1,0 +1,95 @@
+.cities {
+  width: 100%;
+  height: calc(100vh - 212px);
+  overflow: auto;
+  font-size: 0;
+  white-space: nowrap;
+
+  @include media($sm) {
+    height: calc(100vh - 164px);
+  }
+
+  &__column {
+    display: inline-block;
+    vertical-align: top;
+    width: 383px;
+
+    @include media($md) {
+      width: 291px;
+    }
+
+    @include media($sm) {
+      width: 320px;
+    }
+  }
+
+  &__letter {
+    margin-bottom: 36px;
+    @include font-srf-bold();
+    font-size: 120px;
+    line-height: 1em;
+    color: #2B2C2C;
+    text-transform: uppercase;
+
+    @include media($md) {
+      margin-bottom: 17px;
+      font-size: 70px;
+    }
+  }
+
+  &__table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  &__item {
+    @include font-srfc-bold();
+    font-size: 30px;
+    line-height: 36 / 30 * 1em;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+
+  &__likes {
+    margin-right: 5px;
+    padding-right: 2px;
+    padding-bottom: 15px;
+    width: 80px;
+    vertical-align: top;
+    color: #939393;
+
+    @include media($sm) {
+      padding-bottom: 12px;
+      width: 60px;
+      font-size: 20px;
+      line-height: 24 / 20 * 1em;
+    }
+
+    svg {
+      margin-right: 4px;
+
+      @include media($sm) {
+        margin-right: 3px;
+        width: 15.77px;
+        height: 13.68px;
+      }
+
+      path {
+        fill: #939393
+      }
+    }
+  }
+
+  &__name {
+    padding-right: 10px;
+    padding-bottom: 15px;
+    vertical-align: top;
+    color: #37A6DE;
+
+    @include media($sm) {
+      padding-bottom: 12px;
+      font-size: 22px;
+      line-height: 26 / 22 * 1em;
+    }
+  }
+}

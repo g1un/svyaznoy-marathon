@@ -1,0 +1,16 @@
+mixin cities()
+    .cities
+        -var i = 0
+        while i < 30
+            -i++
+            .cities__column
+                .cities__letter А
+                table.cities__table
+                    -var j = 0
+                    while j < 30
+                        -j++
+                        tr.cities__item
+                            td.cities__likes
+                                img(src='../src/img/svg/heart.svg', width='20.94', height='18.16')
+                                |605
+                            td.cities__name Комсомольск-на-Амуре

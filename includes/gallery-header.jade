@@ -1,5 +1,5 @@
 mixin gallery-header(title)
-    header.gallery-header(class=attributes.class + ' #{title != "Нижний Новгород" ? "_wide" : ""}').clearfix
+    header.gallery-header(class=attributes.class ? attributes.class : "" + ' #{title != "Нижний Новгород" ? "_wide" : ""}').clearfix
         .gallery-header__title!= title
         if title == 'Нижний Новгород'
             .gallery-header__buttons
