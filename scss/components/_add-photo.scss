@@ -1,9 +1,18 @@
 .add-photo {
+  margin-top: -23px;
   padding-bottom: 60px;
   font-size: 0;
 
   @include media($sm) {
     padding-bottom: 20px;
+  }
+
+  &__info {
+    margin-bottom: 60px;
+    @include font-srf-bold();
+    font-size: 14px;
+    line-height: 15 / 14 * 1em;
+    color: #000;
   }
 
   &__item {
