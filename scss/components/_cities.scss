@@ -84,7 +84,15 @@
     padding-right: 10px;
     padding-bottom: 15px;
     vertical-align: top;
-    color: #37A6DE;
+
+    a{
+      color: #37A6DE;
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
 
     @include media($sm) {
       padding-bottom: 12px;

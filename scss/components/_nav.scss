@@ -103,7 +103,8 @@
 }
 
 #body--marathon,
-#body--gallery {
+#body--gallery,
+#body--cities {
 
 	@include media-min($sm + 1px) {
 

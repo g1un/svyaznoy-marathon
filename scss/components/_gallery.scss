@@ -26,6 +26,10 @@
     }
   }
 
+  &__photo {
+    display: block;
+  }
+
   &__likes {
     display: inline-block;
     vertical-align: middle;
@@ -50,6 +54,16 @@
       font-size: 20px;
       line-height: 24 / 20 *1em;
       color: #939393;
+    }
+
+    &.liked {
+
+      svg {
+
+        path {
+          fill: #f59b02;
+        }
+      }
     }
   }
 

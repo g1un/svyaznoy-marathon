@@ -217,10 +217,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				ibOptions.content.querySelector('.js-city').innerHTML = city.title;
 				ibOptions.content.querySelector('.js-distance').innerHTML = city.distance;
 				ibOptions.content.querySelector('.js-likes').innerHTML = city.likes;
-				// ibOptions.content.querySelector('.js-photos').href = city.url;
-				ibOptions.content.querySelector('.js-photos').addEventListener('click', function(e) {
-					e.preventDefault();
-				});
+				ibOptions.content.querySelector('.js-photos').href = city.url;
 
 				//create Clipboard object for copying link to buffer
 				clipboard = new Clipboard(ibOptions.content.querySelector('.js-link'));

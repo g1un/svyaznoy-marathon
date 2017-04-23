@@ -71,6 +71,16 @@
         line-height: 36 / 30 * 1em;
       }
     }
+
+    &.liked {
+
+      svg {
+
+        path {
+          fill: #f59b02;
+        }
+      }
+    }
   }
 
   &__share {
