@@ -25,7 +25,8 @@ mixin rating()
                     td!= i+1
                     td.rating__td!= lines[i%3].title
                     td.rating__td Иван Констанопольский
-                    td.rating__td Мохенджо-Даро
+                    td.rating__td
+                        a(href='#').rating__city Мохенджо-Даро
                     td.rating__td
                         .rating__image
                             a(href='#{lines[i%3].image}').js-magnificPopup

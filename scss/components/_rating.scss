@@ -174,4 +174,13 @@
       max-width: 100%;
     }
   }
+
+  &__city {
+    color: #37a6de;
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
 }

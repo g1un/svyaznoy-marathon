@@ -1,12 +1,21 @@
 .cities {
   width: 100%;
-  height: calc(100vh - 212px);
+  min-height: 200px;
   overflow: auto;
   font-size: 0;
   white-space: nowrap;
 
   @include media($sm) {
     height: calc(100vh - 164px);
+  }
+
+  &__info {
+    margin-top: -23px;
+    margin-bottom: 10px;
+    @include font-srf-bold();
+    font-size: 14px;
+    line-height: 15 / 14 * 1em;
+    color: #000;
   }
 
   &__column {

@@ -333,4 +333,22 @@ document.addEventListener('DOMContentLoaded', function(){
 			});
 		});
 	})();
+
+	//cities alphabet
+	(function() {
+		if(!document.querySelector('.cities')) return;
+
+		//cache Dom
+		var alphabet = document.querySelector('.cities');
+
+		getOffsetTop();
+
+		//bind events
+		window.addEventListener('resize', getOffsetTop);
+
+		//get offset top
+		function getOffsetTop() {
+			alphabet.style.height = window.innerHeight - alphabet.getBoundingClientRect().top + 'px';
+		}
+	})();
 });
