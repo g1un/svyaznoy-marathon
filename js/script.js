@@ -125,13 +125,19 @@ document.addEventListener('DOMContentLoaded', function(){
 				new google.maps.Point(4, 4)
 			);
 
+			var markerImageNullPhoto = new google.maps.MarkerImage('../img/marker-xs-green.png',
+				new google.maps.Size(7, 7),
+				new google.maps.Point(0, 0),
+				new google.maps.Point(4, 4)
+			);
+
 			var markerImage = new google.maps.MarkerImage('../img/marker.png',
 				new google.maps.Size(15, 15),
 				new google.maps.Point(0, 0),
 				new google.maps.Point(7, 7)
 			);
 
-			var markerImagePhoto = new google.maps.MarkerImage('../img/marker-sm-red-photos.png',
+			var markerImagePhoto = new google.maps.MarkerImage('../img/marker-sm-green-photos.png',
 				new google.maps.Size(15, 15),
 				new google.maps.Point(0, 0),
 				new google.maps.Point(7, 7)
@@ -143,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				new google.maps.Point(15, 15)
 			);
 
-			var markerImageBigPhoto = new google.maps.MarkerImage('../img/marker-lg-red-photos.png',
+			var markerImageBigPhoto = new google.maps.MarkerImage('../img/marker-lg-green-photos.png',
 				new google.maps.Size(30, 30),
 				new google.maps.Point(0, 0),
 				new google.maps.Point(15, 15)
@@ -151,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			function createMarker(dist, photos) {
 				if(dist == 0) {
-					return markerImageNull;
+					return photos == 1 ? markerImageNullPhoto : markerImageNull;
 				} else if(dist < 50) {
 					return photos == 1 ? markerImagePhoto : markerImage;
 				} else {
@@ -240,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				ibOptions.content.querySelector('.js-distance').innerHTML = city.distance;
 				ibOptions.content.querySelector('.js-likes').innerHTML = city.likes;
 				ibOptions.content.querySelector('.js-photos').href = city.url;
-				ibOptions.content.querySelector('.js-photos-num').innerHTML = city.photos;
+				ibOptions.content.querySelector('.js-photos-num').innerHTML = city.count_photos;
 
 				//create Clipboard object for copying link to buffer
 				clipboard = new Clipboard(ibOptions.content.querySelector('.js-link'));

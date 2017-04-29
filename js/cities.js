@@ -7,8 +7,8 @@ var cities = [
 		"likes": "450",
 		"url": "url1",
 		"linkToPhoto": "1",
-		"hasPhoto": 0,
-		"photos": 375
+		"hasPhotos": 1,
+		"count_photos": 375
 	},
 	{
 		"id": 2,
@@ -19,6 +19,6 @@ var cities = [
 		"url": "url2",
 		"linkToPhoto": "2",
 		"hasPhotos": 1,
-		"photos": 25
+		"count_photos": 25
 	}
 ];
