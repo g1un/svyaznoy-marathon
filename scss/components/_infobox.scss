@@ -119,14 +119,19 @@
 	}
 
 	&__photos {
-		display: inline-flex;
+		display: inline-block;
 		vertical-align: top;
-		align-items: center;
-		justify-content: center;
+		padding-top: 62px;
 		width: 50%;
 		height: 115px;
 		background: #90c74b;
 		cursor: pointer;
+		@include font-srf-num();
+		font-size: 40px;
+		line-height: 1em;
+		color: #fff;
+		text-align: center;
+		position: relative;
 
 		@include media($sm) {
 			height: 100px;
@@ -134,7 +139,10 @@
 
 		&:before {
 			content: '';
-			display: block;
+			position: absolute;
+			top: 25px;
+			left: 50%;
+			margin-left: -$photos-width / 2;
 			@include sprite($photos);
 		}
 	}

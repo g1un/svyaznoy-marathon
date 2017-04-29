@@ -6,15 +6,19 @@ var cities = [
 		"distance": "0",
 		"likes": "450",
 		"url": "url1",
-		"linkToPhoto": "1"
+		"linkToPhoto": "1",
+		"hasPhoto": 0,
+		"photos": 375
 	},
 	{
 		"id": 2,
 		"coordinates": {lat: 55.708327, lng: 52.392155},
 		"title": "Набережные Челны",
-		"distance": "150",
+		"distance": 49,
 		"likes": "150",
 		"url": "url2",
-		"linkToPhoto": "2"
+		"linkToPhoto": "2",
+		"hasPhotos": 1,
+		"photos": 25
 	}
 ];

@@ -119,16 +119,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 			//marker Image & position
+			var markerImageNull = new google.maps.MarkerImage('../img/marker-sm-blue.png',
+				new google.maps.Size(7, 7),
+				new google.maps.Point(0, 0),
+				new google.maps.Point(4, 4)
+			);
+
 			var markerImage = new google.maps.MarkerImage('../img/marker.png',
 				new google.maps.Size(15, 15),
 				new google.maps.Point(0, 0),
 				new google.maps.Point(7, 7)
 			);
 
-			var markerImageNull = new google.maps.MarkerImage('../img/marker-sm-blue.png',
-				new google.maps.Size(7, 7),
+			var markerImagePhoto = new google.maps.MarkerImage('../img/marker-sm-red-photos.png',
+				new google.maps.Size(15, 15),
 				new google.maps.Point(0, 0),
-				new google.maps.Point(4, 4)
+				new google.maps.Point(7, 7)
 			);
 
 			var markerImageBig = new google.maps.MarkerImage('../img/marker-lg.png',
@@ -136,6 +142,22 @@ document.addEventListener('DOMContentLoaded', function(){
 				new google.maps.Point(0, 0),
 				new google.maps.Point(15, 15)
 			);
+
+			var markerImageBigPhoto = new google.maps.MarkerImage('../img/marker-lg-red-photos.png',
+				new google.maps.Size(30, 30),
+				new google.maps.Point(0, 0),
+				new google.maps.Point(15, 15)
+			);
+
+			function createMarker(dist, photos) {
+				if(dist == 0) {
+					return markerImageNull;
+				} else if(dist < 50) {
+					return photos == 1 ? markerImagePhoto : markerImage;
+				} else {
+					return photos ==1 ? markerImageBigPhoto : markerImageBig;
+				}
+			}
 
 			//markers and infoBlock
 			var markers = [];
@@ -165,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				markers[city.id] = new google.maps.Marker({
 					map: map,
 					position: city.coordinates,
-					icon: city.distance == 0 ? markerImageNull : city.distance < 50 ? markerImage : markerImageBig
+					icon: createMarker(city.distance, city.hasPhotos)
 				});
 
 				//bind 'click' event to marker
@@ -218,6 +240,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				ibOptions.content.querySelector('.js-distance').innerHTML = city.distance;
 				ibOptions.content.querySelector('.js-likes').innerHTML = city.likes;
 				ibOptions.content.querySelector('.js-photos').href = city.url;
+				ibOptions.content.querySelector('.js-photos-num').innerHTML = city.photos;
 
 				//create Clipboard object for copying link to buffer
 				clipboard = new Clipboard(ibOptions.content.querySelector('.js-link'));
