@@ -186,7 +186,13 @@ document.addEventListener('DOMContentLoaded', function(){
 				,pane: "floatPane"
 				,enableEventPropagation: false
 			};
-			var clipboard;
+
+			//create Clipboard object for copying link to buffer
+			var clipboard = new Clipboard(ibOptions.content.querySelector('.js-link'));
+			clipboard.on('success', alertCopy);
+			function alertCopy(e) {
+				alert('Ссылка скопирована в буфер обмена');
+			}
 
 			//creating markers
 			cities.forEach(function(city) {
@@ -248,9 +254,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				ibOptions.content.querySelector('.js-photos').href = city.url;
 				ibOptions.content.querySelector('.js-photos-num').innerHTML = city.count_photos;
 
-				//create Clipboard object for copying link to buffer
-				clipboard = new Clipboard(ibOptions.content.querySelector('.js-link'));
-				//set Clipboard attribute to copy
+				//set attribute for Clipboard
 				ibOptions.content.querySelector('.js-link')
 					.setAttribute('data-clipboard-text', window.location.href.split('#')[0] + '#' + city.id);
 			}
@@ -346,6 +350,8 @@ document.addEventListener('DOMContentLoaded', function(){
 	})();
 
 	(function() {
+		if(!document.querySelector('.js-magnificPopup')) return;
+
 		$(document).ready(function() {
 			$('.js-magnificPopup').magnificPopup({
 				type:'image',
