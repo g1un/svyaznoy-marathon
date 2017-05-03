@@ -269,10 +269,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				if(small() && smalled) return;
 				if(!small() && !smalled && smalled != 'undefined') return;
 
-				if(small()) {
+				if(small() && ib) {
 					ib.setOptions({pixelOffset: new google.maps.Size(-136, -337)});
 					smalled = true;
-				} else {
+				} else if(ib) {
 					ib.setOptions({pixelOffset: new google.maps.Size(0, -377)});
 					smalled = false;
 				}
@@ -386,4 +386,27 @@ document.addEventListener('DOMContentLoaded', function(){
 			alphabet.style.height = window.innerHeight - alphabet.getBoundingClientRect().top + 'px';
 		}
 	})();
+
+	//progress bar
+	// (function() {
+	// 	if(!document.querySelector('.js-progress-line')) return;
+	//
+	// 	//cache Dom
+	// 	var line = document.querySelector('.js-progress-line');
+	// 	var info = document.querySelector('.js-progress-info');
+	//
+	// 	checkStyle();
+	//
+	// 	//get style
+	// 	function getStyle() {
+	// 		return line.style.width;
+	// 	}
+	//
+	// 	//check style
+	// 	function checkStyle() {
+	// 		if(getStyle() == '100%' || !getStyle()) {
+	// 			info.classList.add('_finish');
+	// 		}
+	// 	}
+	// })();
 });

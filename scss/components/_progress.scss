@@ -42,6 +42,8 @@
 		font-size: 20px;
 		line-height: 1em;
 		color: #454545;
+
+		display: none;
 	}
 
 	&__bar {
@@ -58,10 +60,17 @@
 
 	&__info {
 		position: absolute;
-		bottom: 0;
-		right: -15px;
+		//bottom: 0;
+		//right: -15px;
 		height: 54px;
-		@include sprite($runner);
+		//@include sprite($runner);
+		bottom: 5px;
+		right: -5px;
+		@include sprite($finish);
+
+		//&._finish {
+		//	@include sprite($finish);
+		//}
 
 		span {
 			display: block;
@@ -77,14 +86,16 @@
 			line-height: 40px;
 			color: #454545;
 
+			top: 10px;
+
 			&._right {
 				right: auto;
 				left: 100%;
 			}
 
-			@include media($sm) {
-				display: none;
-			}
+			//@include media($sm) {
+			//	display: none;
+			//}
 		}
 	}
 }
